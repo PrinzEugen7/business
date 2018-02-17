@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja"><link type="text/css" id="dark-mode" rel="stylesheet" href=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.ftscroller_container { overflow: hidden; position: relative; max-height: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -ms-touch-action: none }
+.ftscroller_hwaccelerated { transform: translateZ(0); }
+.ftscroller_x, .ftscroller_y { position: relative; min-width: 100%; min-height: 100%; overflow: hidden }
+.ftscroller_x { display: inline-block }
+.ftscroller_scrollbar { pointer-events: none; position: absolute; width: 5px; height: 5px; border: 1px solid rgba(255, 255, 255, 0.3); -webkit-border-radius: 3px; border-radius: 6px; opacity: 0; transition: opacity 350ms; z-index: 10; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box }
+.ftscroller_scrollbarx { bottom: 2px; left: 2px }
+.ftscroller_scrollbary { right: 2px; top: 2px }
+.ftscroller_scrollbarinner { height: 100%; background: #000; -webkit-border-radius: 2px; border-radius: 4px / 6px }
+.ftscroller_scrollbar.active { opacity: 0.5; transition: none; -o-transition: all 0 none }</style>
+<meta charset="UTF-8">
+
+<!-- base href="http://app.kuma-de.com/rapid_calc/" -->
+<meta content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="Rapid%20Calc_files/calc.css" media="all" rel="stylesheet" type="text/css">
+<script src="Rapid%20Calc_files/libs.js" type="text/javascript"></script>
+<script src="Rapid%20Calc_files/rpn_calc.js" type="text/javascript"></script>
+<script src="Rapid%20Calc_files/calc_main.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+    var calcMain = new kk.CalcMain();
+});
+</script>
+<title>Rapid Calc</title>
+</head>
+<body cz-shortcut-listen="true">
+<div id="wrapper" class="theme_purple foo">
+
+<div id="wrapper_scroll_contents">
+
+
+<div id="calc_scene" class="scene clearfix">
+
+<div id="formula_item_collection_view" style="height: 389px;"><div class="ftscroller_container"><div class="ftscroller_y ftscroller_hwaccelerated">
+<div id="formula_item_collection_view_scroll_area"><ul id="c35"><li class="formula_text"><span class="">7</span><span class="">4</span><span class="caret_right">5</span></li><li class="formula_result">&nbsp;</li></ul></div>
+<!--formula_item_collection_view--></div><div class="ftscroller_scrollbar ftscroller_scrollbary ftscroller_hwaccelerated" style="height: 117px;"><div class="ftscroller_scrollbarinner"></div></div></div></div>
+
+
+<script type="text/template" id="formula_item_result_template">
+<% if(hasError){ %>
+<li class="formula_result error_msg"><%= errorMsg %></li>
+<% }else{ %>
+<li class="formula_result"><%= answer %></li>
+<% } %>
+</script>
+
+
+<div id="operation_buttons_container_view">
+
+
+<div id="menu_bar" class="clearfix">
+<ul class="clearfix">
+<li id="btn_ac" class="op_btn btn_menu_color">
+    <span class="op_btn_icon btn_ac op_buttons_sprite"></span>
+</li>
+<li id="btn_help" class="op_btn btn_menu_color">
+    <span class="op_btn_icon btn_help op_buttons_sprite"></span>
+</li>
+<li id="btn_color" class="op_btn btn_menu_color">
+    <span class="op_btn_icon btn_col op_buttons_sprite"></span>
+</li>
+</ul>
+<!--menu_bar--></div>
+
+
+<div id="operation_buttons" class="clearfix">
+<ul class="clearfix">
+<li id="btn_c" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_c op_buttons_sprite"></span>
+</li>
+<li id="btn_left_paren" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_left_paren op_buttons_sprite"></span>
+</li>
+<li id="btn_right_paren" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_right_paren op_buttons_sprite"></span>
+</li>
+<li id="btn_left_arrow" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_left_arrow op_buttons_sprite"></span>
+</li>
+<li id="btn_right_arrow" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_right_arrow op_buttons_sprite"></span>
+</li>
+</ul>
+<ul class="clearfix">
+<li id="btn_num7" class="op_btn btn_num_color">
+<span class="op_btn_icon btn_num7 op_buttons_sprite"></span>
+</li>
+<li id="btn_num8" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num8 op_buttons_sprite"></span></li>
+<li id="btn_num9" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num9 op_buttons_sprite"></span></li>
+<li id="btn_devide" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_devide op_buttons_sprite"></span></li>
+<li id="btn_bs" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_bs op_buttons_sprite"></span></li>
+</ul>
+<ul class="clearfix">
+<li id="btn_num4" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num4 op_buttons_sprite"></span>
+</li>
+<li id="btn_num5" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num5 op_buttons_sprite"></span>
+</li>
+<li id="btn_num6" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num6 op_buttons_sprite"></span>
+</li>
+<li id="btn_multi" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_multi op_buttons_sprite"></span>
+</li>
+<li id="btn_percent" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_percent op_buttons_sprite"></span>
+</li>
+</ul>
+<ul class="clearfix">
+<li id="btn_num1" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num1 op_buttons_sprite"></span>
+</li>
+<li id="btn_num2" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num2 op_buttons_sprite"></span>
+</li>
+<li id="btn_num3" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num3 op_buttons_sprite"></span>
+</li>
+<li id="btn_minus" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_minus op_buttons_sprite"></span>
+</li>
+<li id="btn_tax" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_tax op_buttons_sprite"></span>
+</li>
+</ul>
+<ul class="clearfix">
+<li id="btn_num0" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num0 op_buttons_sprite"></span>
+</li>
+<li id="btn_num00" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_num00 op_buttons_sprite"></span>
+</li>
+<li id="btn_point" class="op_btn btn_num_color">
+    <span class="op_btn_icon btn_point op_buttons_sprite"></span>
+</li>
+<li id="btn_plus" class="op_btn btn_op_color">
+    <span class="op_btn_icon btn_plus op_buttons_sprite"></span>
+</li>
+<li id="btn_eq" class="op_btn btn_eq_color">
+    <span class="op_btn_icon btn_eq op_buttons_sprite"></span>
+</li>
+</ul>
+<!--operation_buttons--></div>
+
+
+<!--operation_buttons_area--></div>
+
+<!--calc_scene--></div>
+
+
+
+<div id="color_setting_scene" class="scene clearfix">
+
+<div id="color_setting_header" class="navi_header">
+<div id="color_setting_back_button" class="scene_back_button"><span class="op_btn_icon btn_back op_buttons_sprite"></span></div>
+<div id="color_setting_header_title" class="navi_header_title"><p>テーマカラーを選択</p></div>
+</div>
+
+<div id="color_setting_lsit_area" style="height: 625px;"><div class="ftscroller_container"><div class="ftscroller_y ftscroller_hwaccelerated">
+<ul id="color_setting_list">
+<li id="color_btn_red">red</li>
+<li id="color_btn_orange">orange</li>
+<li id="color_btn_yellow">yellow</li>
+<li id="color_btn_green">green</li>
+<li id="color_btn_blue">blue</li>
+<li id="color_btn_purple">purple</li>
+<li id="color_btn_pink">pink</li>
+<li id="color_btn_gray">gray</li>
+</ul>
+<!--color_setting_lsit_area--></div><div class="ftscroller_scrollbar ftscroller_scrollbary ftscroller_hwaccelerated" style="height: 396px;"><div class="ftscroller_scrollbarinner"></div></div></div></div>
+<!--color_setting_scene--></div>
+
+
+
+
+<div id="help_scene" class="scene clearfix">
+
+<div id="help_header" class="navi_header">
+<div id="help_back_button" class="scene_back_button"><span class="op_btn_icon btn_back op_buttons_sprite"></span></div>
+<div id="help_header_title" class="navi_header_title"><p>ヘルプ</p></div>
+</div>
+
+<div id="help_scene_content_container" style="height: 625px;"><div class="ftscroller_container"><div class="ftscroller_y ftscroller_hwaccelerated">
+<div id="help_scene_content"><section id="hp_main_title">
+<h1>Rapid Calc</h1>
+<p>ふだん使いにぴったりな<br>
+    サクサク入力できる計算機！</p>
+</section>
+
+
+<section id="hp_feature">
+<h2>特徴</h2>
+<ul>
+<li>ちょっとした計算にぴったりです。式を間違えても手早く直せます</li>
+<li>履歴をタップすれば、式にどんどん追加されます</li>
+<li>8種類のテーマカラーで着せ替えすることが可能です</li>
+</ul>
+</section>
+
+
+<section id="hp_screen_areas">
+<h2>計算画面構成</h2>
+<p><img src="Rapid%20Calc_files/help_screen_fig.png" width="290" height="295"></p>
+</section>
+
+
+<section id="hp_how_to_use">
+<h2>使い方</h2>
+<ul>
+<li>
+    <p><span>1</span>数式を入力</p>
+    <ul>
+        <li>数式は()を使って計算順序を指示できます</li>
+        <li>矢印ボタン"← →"や削除ボタン"x"を使って式の編集が可能です</li>
+        <li>% ボタンは数値の後に入力可能です<br>例） 500%, 2.5%</li>
+        <li>TAX ボタンは消費税率が挿入されます。<br>現在は x1.08 です</li>
+        <li>C ボタンは計算中の行のみをクリアします</li>
+    </ul>
+</li>
+
+<li>
+    <p><span>2</span>= ボタンで計算</p>
+</li>
+
+<li>
+    <p><span>3</span>結果を表示</p>
+    <ul>
+        <li>計算式や計算実行中にエラーがある場合、それが表示されます</li>
+        <li>結果は履歴に追加されます</li>
+        <li>この状態で "+ - x ÷"を押すと、新しい計算行が追加され、この結果が挿入されます</li>
+    </ul>
+</li>
+<li>
+    <p><span>4</span>履歴を使用</p>
+    <ul>
+        <li>履歴をタップするたびに、計算中の行に計算結果が追加されます</li>
+        <li>AC ボタンは全ての履歴をクリアします</li>
+    </ul>
+</li>
+
+</ul>
+</section>
+
+<section id="hp_other_notes">
+<h2>その他</h2>
+<ul>
+<li>COL ボタンはテーマーカラー選択画面に遷移します</li>
+<li>? ボタンはヘルプ画面（この画面）に遷移します</li>
+</ul>
+</section>
+
+</div>
+</div><div class="ftscroller_scrollbar ftscroller_scrollbary ftscroller_hwaccelerated" style="height: 254px;"><div class="ftscroller_scrollbarinner"></div></div></div></div>
+<!--help_scene--></div>
+
+<!--wrapper_scroll_contents--></div>
+
+<!--wrapper--></div>
+
+
+
+
+
+</body></html>
